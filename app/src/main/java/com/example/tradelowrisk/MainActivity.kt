@@ -13,17 +13,17 @@ class MainActivity : AppCompatActivity() {
     var sharePrice:EditText?=null
     var shares:TextView?=null
     var stopLose:TextView?=null
-    var ratio:List<Double> = listOf( 0.01, 0.02, 0.03)
+    var ratio:List<Double> = listOf (0.01, 0.02, 0.03)
     var spiner:Spinner?=null
     var cal:Button?=null
+    var target1:TextView? = null
+    var target2:TextView? = null
 
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
             cntView()
             calculate()
-
     }
 
     private fun cntView() {
@@ -34,32 +34,31 @@ class MainActivity : AppCompatActivity() {
         stopLose = findViewById(R.id.stopLose)
         spiner = findViewById(R.id.spinner)
         cal = findViewById(R.id.calculate)
+        target1 = findViewById(R.id.target1)
+        target2 = findViewById(R.id.target2)
 
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, ratio)
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spiner?.adapter = arrayAdapter
     }
-
     private fun calculate(){
-
         cal?.setOnClickListener {
-
-            var capStr:String = capital!!.text.toString()
-            var ssPrice: String = sharePrice!!.text.toString()
-            var cap:Double = capStr.toDouble()
-            var sPrice:Double = ssPrice.toDouble()
-            var gSpin:Double = spiner!!.selectedItem as Double
+            val capStr:String = capital!!.text.toString()
+            val ssPrice: String = sharePrice!!.text.toString()
+            val cap:Double = capStr.toDouble()
+            val sPrice:Double = ssPrice.toDouble()
+            val gSpin:Double = spiner!!.selectedItem as Double
             val rA:Double = ( gSpin * cap)
             val sN:Double = (cap / sPrice)
-            var sP:Double =   sPrice - (rA/sN)
-
+            val sP:Double =   sPrice - (rA/sN)
+            val t1:Double = (rA/sN*2) + sPrice
+            val t2:Double = (rA/sN*3) + sPrice
 
             riskAmount?.text = rA.toString()
             shares?.text = sN.toString()
             stopLose?.text = sP.toString()
-
+            target1?.text = t1.toString()
+            target2?.text = t2.toString()
         }
-
     }
-
 }

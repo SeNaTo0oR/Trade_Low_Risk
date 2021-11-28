@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
 
@@ -17,7 +18,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="5dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        style="@style/CardView.Light"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"/>
 
     <TextView
         android:id="@+id/textView"
@@ -26,7 +30,8 @@
         android:layout_margin="5dp"
         android:gravity="center"
         android:text="Capital ->"
-        android:textColor="@color/black"
+        android:padding="5dp"
+        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/capital"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,8 +48,11 @@
         app:layout_constraintTop_toBottomOf="@id/spinner"
         android:gravity="center"
         android:inputType="numberDecimal"
-        android:hint="Add Capital USD   "
-        android:textSize="10sp"/>
+        android:hint="Add Capital USD "
+        android:textColor="#FFC107"
+        android:textColorHint="#CDDC39"
+        android:textSize="20sp"
+        android:autofillHints="2500" />
 
 
     <TextView
@@ -54,7 +62,8 @@
         android:layout_margin="5dp"
         android:gravity="center"
         android:text="Risk $"
-        android:textColor="@color/black"
+        android:padding="5dp"
+        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/risk"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +80,9 @@
         app:layout_constraintTop_toBottomOf="@id/capital"
         android:gravity="center"
         android:hint="Risk amount"
+        android:padding="2dp"
         android:textSize="25sp"
+        android:textColorHint="#FB0000"
         android:textColor="#CC1212"/>
 
     <TextView
@@ -81,7 +92,8 @@
         android:layout_margin="5dp"
         android:gravity="center"
         android:text="Share price"
-        android:textColor="@color/black"
+        android:padding="5dp"
+        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/sharePrice"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,7 +111,10 @@
         android:gravity="center"
         android:inputType="numberDecimal"
         android:hint="USD"
-        android:textSize="10sp"/>
+        android:textColorHint="#D9F6CD"
+        android:textColor="#24A62B"
+        android:textSize="20sp"
+        android:autofillHints="10" />
 
     <TextView
         android:id="@+id/textView3"
@@ -108,7 +123,8 @@
         android:layout_margin="5dp"
         android:gravity="center"
         android:text="Shares Num"
-        android:textColor="@color/black"
+        android:padding="5dp"
+        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/shares"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,9 +141,11 @@
         app:layout_constraintTop_toBottomOf="@id/sharePrice"
         android:gravity="center"
         android:hint="Count"
+        android:padding="5dp"
         android:maxLength="6"
         android:textSize="25sp"
-        android:textColor="@color/purple_700"/>
+        android:textColorHint="#679EFD"
+        android:textColor="#1744E8"/>
 
 
     <TextView
@@ -138,7 +156,8 @@
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="Stop Price"
-        android:textColor="@color/black"
+        android:padding="5dp"
+        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
@@ -154,8 +173,46 @@
         app:layout_constraintTop_toBottomOf="@id/shares"
         android:gravity="center"
         android:hint="stop lose"
+        android:padding="5dp"
+        android:textColorHint="#FF5D5D"
         android:textColor="#BF0D0D"
         android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/target2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/stopLose"
+        android:gravity="center"
+        android:hint="Target 2"
+        android:padding="5dp"
+        android:textColorHint="#09AE0C"
+        android:textColor="#46DA11"
+        android:textSize="25sp"
+        android:background="@color/white"
+        android:textStyle="bold"
+        android:maxLength="6"/>
+    <TextView
+        android:id="@+id/target1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView4"
+        android:gravity="center"
+        android:hint="Target 1"
+        android:maxLength="6"
+        android:padding="5dp"
+        android:textColorHint="#09AE0C"
+        android:textColor="#46DA11"
+        android:textSize="25sp"
+        android:background="@color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/calculate"
@@ -165,6 +222,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:text="Calculate"
+        android:outlineAmbientShadowColor="@color/white"
+        android:textColorHighlight="@color/white"
+        android:background="@color/teal_200"
+        android:backgroundTint="@color/teal_200"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <androidx.constraintlayout.widget.Guideline
