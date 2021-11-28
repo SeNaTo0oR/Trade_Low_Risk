@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="5dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="Capital ->"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/capital"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner" />
+
+
+    <EditText
+        android:id="@+id/capital"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/spinner"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:hint="Add Capital USD   "
+        android:textSize="10sp"/>
+
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="Risk $"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/risk"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
+
+    <TextView
+        android:id="@+id/risk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/capital"
+        android:gravity="center"
+        android:hint="Risk amount"
+        android:textSize="25sp"
+        android:textColor="#CC1212"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="Share price"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/sharePrice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView1" />
+
+
+    <EditText
+        android:id="@+id/sharePrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/risk"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:hint="USD"
+        android:textSize="10sp"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="Shares Num"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/shares"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+
+    <TextView
+        android:id="@+id/shares"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/sharePrice"
+        android:gravity="center"
+        android:hint="Count"
+        android:maxLength="6"
+        android:textSize="25sp"
+        android:textColor="@color/purple_700"/>
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="Stop Price"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView3" />
+
+    <TextView
+        android:id="@+id/stopLose"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
+        app:layout_constraintTop_toBottomOf="@id/shares"
+        android:gravity="center"
+        android:hint="stop lose"
+        android:textColor="#BF0D0D"
+        android:textSize="25sp"/>
+
+    <Button
+        android:id="@+id/calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Calculate"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.66" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+</androidx.constraintlayout.widget.ConstraintLayout>
