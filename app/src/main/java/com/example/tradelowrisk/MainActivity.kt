@@ -22,8 +22,10 @@ class MainActivity : AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
             cntView()
             calculate()
+            handleException()
     }
 
     private fun cntView() {
@@ -41,24 +43,41 @@ class MainActivity : AppCompatActivity() {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spiner?.adapter = arrayAdapter
     }
-    private fun calculate(){
+    private fun calculate() {
         cal?.setOnClickListener {
-            val capStr:String = capital!!.text.toString()
+            val capStr: String = capital!!.text.toString()
             val ssPrice: String = sharePrice!!.text.toString()
-            val cap:Double = capStr.toDouble()
-            val sPrice:Double = ssPrice.toDouble()
-            val gSpin:Double = spiner!!.selectedItem as Double
-            val rA:Double = ( gSpin * cap)
-            val sN:Double = (cap / sPrice)
-            val sP:Double =   sPrice - (rA/sN)
-            val t1:Double = (rA/sN*2) + sPrice
-            val t2:Double = (rA/sN*3) + sPrice
+            if (capStr == "" || ssPrice == "") {
+                riskAmount?.text = ""
+                shares?.text = ""
+                stopLose?.text = ""
+                target1?.text = ""
+                target2?.text = ""
+            } else {
 
-            riskAmount?.text = rA.toString()
-            shares?.text = sN.toString()
-            stopLose?.text = sP.toString()
-            target1?.text = t1.toString()
-            target2?.text = t2.toString()
+                val cap: Double = capStr.toDouble()
+                val sPrice: Double = ssPrice.toDouble()
+                val gSpin: Double = spiner!!.selectedItem as Double
+                val rA: Double = (gSpin * cap)
+                val sN: Double = (cap / sPrice)
+                val sP: Double = sPrice - (rA / sN)
+                val t1: Double = (rA / sN * 2) + sPrice
+                val t2: Double = (rA / sN * 3) + sPrice
+
+                riskAmount?.text = rA.toString()
+                shares?.text = sN.toString()
+                stopLose?.text = sP.toString()
+                target1?.text = t1.toString()
+                target2?.text = t2.toString()
+            }
+            }
         }
-    }
+        private fun handleException() {
+            try {
+                capital;riskAmount; sharePrice; stopLose; spiner;cal; target1; target2
+            } catch (e: NumberFormatException) {
+                Toast.makeText(this, "Please add a values", Toast.LENGTH_SHORT).show()
+            }
+
+        }
 }
