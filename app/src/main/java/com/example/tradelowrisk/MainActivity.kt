@@ -1,5 +1,6 @@
 package com.example.tradelowrisk
 
+import android.annotation.SuppressLint
 import android.icu.text.Transliterator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spiner?.adapter = arrayAdapter
     }
+    @SuppressLint("SetTextI18n")
     private fun calculate() {
         cal?.setOnClickListener {
             val capStr: String = capital!!.text.toString()
@@ -53,6 +55,7 @@ class MainActivity : AppCompatActivity() {
                 stopLose?.text = ""
                 target1?.text = ""
                 target2?.text = ""
+                Toast.makeText(this, " Please Fill Capital & Share Price", Toast.LENGTH_SHORT).show()
             } else {
 
                 val cap: Double = capStr.toDouble()
@@ -67,8 +70,8 @@ class MainActivity : AppCompatActivity() {
                 riskAmount?.text = rA.toString()
                 shares?.text = sN.toString()
                 stopLose?.text = sP.toString()
-                target1?.text = t1.toString()
-                target2?.text = t2.toString()
+                target1?.text = "T1= $t1"
+                target2?.text = "T2= $t2"
             }
             }
         }

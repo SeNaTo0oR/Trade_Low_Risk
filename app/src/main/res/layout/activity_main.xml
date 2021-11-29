@@ -33,9 +33,11 @@
         android:padding="5dp"
         android:textColor="@color/white"
         android:textSize="25sp"
+        android:textAlignment="textEnd"
         app:layout_constraintEnd_toStartOf="@+id/capital"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinner" />
+        app:layout_constraintTop_toBottomOf="@id/spinner"
+        tools:ignore="RtlCompat" />
 
 
     <EditText
@@ -61,13 +63,15 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:gravity="center"
-        android:text="Risk $"
+        android:text="Risk $ ->"
         android:padding="5dp"
         android:textColor="@color/white"
         android:textSize="25sp"
+        android:textAlignment="textEnd"
         app:layout_constraintEnd_toStartOf="@+id/risk"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView" />
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        tools:ignore="RtlCompat" />
 
 
     <TextView
@@ -80,6 +84,7 @@
         app:layout_constraintTop_toBottomOf="@id/capital"
         android:gravity="center"
         android:hint="Risk amount"
+        android:maxLength="6"
         android:padding="2dp"
         android:textSize="25sp"
         android:textColorHint="#FB0000"
@@ -91,13 +96,15 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:gravity="center"
-        android:text="Share price"
+        android:text="SharePrice->"
         android:padding="5dp"
         android:textColor="@color/white"
         android:textSize="25sp"
+        android:textAlignment="textEnd"
         app:layout_constraintEnd_toStartOf="@+id/sharePrice"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView1" />
+        app:layout_constraintTop_toBottomOf="@id/textView1"
+        tools:ignore="RtlCompat" />
 
 
     <EditText
@@ -122,13 +129,15 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:gravity="center"
-        android:text="Shares Num"
+        android:text="Shares->"
         android:padding="5dp"
         android:textColor="@color/white"
         android:textSize="25sp"
+        android:textAlignment="textEnd"
         app:layout_constraintEnd_toStartOf="@+id/shares"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView2" />
+        app:layout_constraintTop_toBottomOf="@id/textView2"
+        tools:ignore="RtlCompat" />
 
 
     <TextView
@@ -154,11 +163,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:text="Stop Price"
+        android:text="StopPrice->"
         android:padding="5dp"
         android:textColor="@color/white"
         android:textSize="25sp"
+        android:textAlignment="textEnd"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView3" />
@@ -195,7 +204,7 @@
         android:textSize="25sp"
         android:background="@color/white"
         android:textStyle="bold"
-        android:maxLength="6"/>
+        android:maxLength="10"/>
     <TextView
         android:id="@+id/target1"
         android:layout_width="0dp"
@@ -206,7 +215,7 @@
         app:layout_constraintTop_toBottomOf="@id/textView4"
         android:gravity="center"
         android:hint="Target 1"
-        android:maxLength="6"
+        android:maxLength="10"
         android:padding="5dp"
         android:textColorHint="#09AE0C"
         android:textColor="#46DA11"
