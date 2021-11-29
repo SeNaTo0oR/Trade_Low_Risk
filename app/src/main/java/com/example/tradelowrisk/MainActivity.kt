@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
                 stopLose?.text = ""
                 target1?.text = ""
                 target2?.text = ""
+                Toast.makeText(this, " Please Fill Capital & Share Price", Toast.LENGTH_SHORT).show()
             } else {
 
                 val cap: Double = capStr.toDouble()
