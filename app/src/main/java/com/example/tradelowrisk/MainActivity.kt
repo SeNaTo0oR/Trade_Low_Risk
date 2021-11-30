@@ -19,16 +19,13 @@ class MainActivity : AppCompatActivity() {
     var cal:Button?=null
     var target1:TextView? = null
     var target2:TextView? = null
-
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
             cntView()
             calculate()
             handleException()
     }
-
     private fun cntView() {
         capital = findViewById(R.id.capital)
         riskAmount = findViewById(R.id.risk)
@@ -39,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         cal = findViewById(R.id.calculate)
         target1 = findViewById(R.id.target1)
         target2 = findViewById(R.id.target2)
-
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, ratio)
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spiner?.adapter = arrayAdapter
@@ -57,7 +53,6 @@ class MainActivity : AppCompatActivity() {
                 target2?.text = ""
                 Toast.makeText(this, " Please Fill Capital & Share Price", Toast.LENGTH_SHORT).show()
             } else {
-
                 val cap: Double = capStr.toDouble()
                 val sPrice: Double = ssPrice.toDouble()
                 val gSpin: Double = spiner!!.selectedItem as Double
@@ -66,21 +61,19 @@ class MainActivity : AppCompatActivity() {
                 val sP: Double = sPrice - (rA / sN)
                 val t1: Double = (rA / sN * 2) + sPrice
                 val t2: Double = (rA / sN * 3) + sPrice
-
                 riskAmount?.text = rA.toString()
                 shares?.text = sN.toString()
                 stopLose?.text = sP.toString()
                 target1?.text = "T1= $t1"
                 target2?.text = "T2= $t2"
             }
-            }
         }
+    }
         private fun handleException() {
             try {
                 capital;riskAmount; sharePrice; stopLose; spiner;cal; target1; target2
             } catch (e: NumberFormatException) {
                 Toast.makeText(this, "Please add a values", Toast.LENGTH_SHORT).show()
             }
-
         }
 }
